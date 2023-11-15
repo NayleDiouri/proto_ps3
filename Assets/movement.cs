@@ -6,7 +6,8 @@ public class movement : MonoBehaviour
 {
     public Joystick joystick;
     public Rigidbody2D rb;
-    public GameObject attackButton; 
+    public GameObject attackButton;
+    public float speed;
     void Start()
     {
         
@@ -16,7 +17,7 @@ public class movement : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 Input = new Vector2(joystick.Horizontal, joystick.Vertical);
-        rb.MovePosition((Vector2)transform.position + Input * 10 * Time.deltaTime);
+        rb.MovePosition((Vector2)transform.position + Input * speed * Time.deltaTime);
     }
 
 }

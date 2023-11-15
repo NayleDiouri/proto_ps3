@@ -801,6 +801,7 @@ MonoBehaviour:
   joystick: {fileID: 2107968582}
   rb: {fileID: 1525389867}
   attackButton: {fileID: 0}
+  speed: 7
 --- !u!212 &1525389869
 SpriteRenderer:
   m_ObjectHideFlags: 0
