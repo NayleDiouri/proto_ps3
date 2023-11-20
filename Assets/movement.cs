@@ -8,6 +8,7 @@ public class movement : MonoBehaviour
     public Rigidbody2D rb;
     public GameObject attackButton;
     public float speed;
+
     void Start()
     {
         
