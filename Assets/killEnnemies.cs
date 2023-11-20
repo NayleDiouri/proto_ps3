@@ -11,7 +11,7 @@ public class killEnnemies : MonoBehaviour
     {
         if (collision.gameObject.tag == "ennemy")
         {
-            Destroy(collision.gameObject);
+            Destroy(ennemy);
         }
     }
 
