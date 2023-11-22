@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class attackButton : MonoBehaviour
+public class AttackButton : MonoBehaviour
 {
     public Transform parent;
     public GameObject slash;

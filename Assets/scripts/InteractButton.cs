@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class interactButton : MonoBehaviour
+public class InteractButton : MonoBehaviour
 {
     public GameObject artefact;
     public bool onArtefact = false;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class killEnnemies : MonoBehaviour
+public class KillEnnemies : MonoBehaviour
 {
     public GameObject ennemy;
 
@@ -11,7 +11,7 @@ public class killEnnemies : MonoBehaviour
     {
         if (collision.gameObject.tag == "ennemy")
         {
-            Destroy(ennemy);
+            Destroy(collision.gameObject);
         }
     }
 
