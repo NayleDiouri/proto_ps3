@@ -24,7 +24,6 @@ public class Movement : MonoBehaviour
     {
         Vector2 Input = new Vector2(joystick.Horizontal, joystick.Vertical);
         rb.MovePosition((Vector2)transform.position + Input * speed * Time.deltaTime);
-
     }
 
     void Spawn()
