@@ -28,10 +28,10 @@ public class Movement : MonoBehaviour
 
     void Spawn()
     {
-        spawnPosition.x = Random.Range(Player.transform.position.x - 2, Player.transform.position.x + 2);
-        spawnPosition.y = Random.Range(Player.transform.position.y - 5, Player.transform.position.y + 5);
+        spawnPosition = Random.insideUnitCircle.normalized * 6;
 
-        Instantiate(enemy, spawnPosition, Quaternion.identity);
+
+        Instantiate(enemy, Player.transform.position + spawnPosition, Quaternion.identity);
     }
 
 }

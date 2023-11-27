@@ -34,4 +34,39 @@ public class InteractButton : MonoBehaviour
             Destroy(artefact);
         }
     }
+    public enum FoodArtefactsBretagne
+    { 
+        Cidre,
+        Chouchen,
+        Caramel,
+        Crepe,
+        KouignAmann,
+        Moules
+
+    }
+
+    public enum MysticArtefactBretagne
+    {
+        TriquetraCeltique,
+        Excalibur,
+        Durandal
+    }
+
+    public enum FoodArtefactsNormandie
+    {
+        Andouille,
+        Fromage,
+        Calvados,
+        Omelette,
+        TartePommes,
+        SaintJacques
+    }
+
+    public enum MysticArtefactsNormandie
+    {
+        BigorneChicheface,
+        DemoiselleTonneville,
+        DameBlanche
+    }
+
 }
