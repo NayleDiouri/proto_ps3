@@ -6,6 +6,10 @@ public class InteractButton : MonoBehaviour
 {
     public bool onArtefact = false;
     public GameObject artefact;
+    private bool oneTime = false;
+
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
@@ -26,12 +30,22 @@ public class InteractButton : MonoBehaviour
             onArtefact = false;
         }
     }
+
+    private void Update()
+    {
+        if (oneTime == true)
+        {
+            Debug.Log("azy y'a juste un ptiiiit probleme");
+            gameObject.SetActive(true);
+            oneTime = false; 
+        }
+    }
     public void getArtefact()
     {
         if(onArtefact == true)
         {
-
             Destroy(artefact);
+            oneTime = true;
         }
     }
     public enum FoodArtefactsBretagne
@@ -52,6 +66,13 @@ public class InteractButton : MonoBehaviour
         Durandal
     }
 
+    public enum CultureArtefactsBretagne
+    {
+        ArmureChevalierBertrand,
+        CireBreton,
+        StatueMichelArchange
+    }
+
     public enum FoodArtefactsNormandie
     {
         Andouille,
@@ -67,6 +88,12 @@ public class InteractButton : MonoBehaviour
         BigorneChicheface,
         DemoiselleTonneville,
         DameBlanche
+    }
+
+    public enum CultureArtefactsNormandie
+    {
+        BougieTrudon,
+        StatueMichelArchange
     }
 
 }

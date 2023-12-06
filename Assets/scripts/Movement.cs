@@ -12,9 +12,11 @@ public class Movement : MonoBehaviour
     private Vector3 spawnPosition;
     private GameObject Player;
     public GameObject enemy;
+    public GameObject popUps;
 
     void Start()
     {
+        popUps.SetActive(false);
         Player = GameObject.Find("Player");
         InvokeRepeating("Spawn", spawnTime, spawnTime);
     }
