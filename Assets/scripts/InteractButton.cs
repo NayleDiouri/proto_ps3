@@ -6,6 +6,7 @@ public class InteractButton : MonoBehaviour
 {
     public bool onArtefact = false;
     public GameObject artefact;
+    public GameObject panel;
     private bool oneTime = false;
 
 
@@ -33,11 +34,9 @@ public class InteractButton : MonoBehaviour
 
     private void Update()
     {
-        if (oneTime == true)
+        switch (switch_on)
         {
-            Debug.Log("azy y'a juste un ptiiiit probleme");
-            gameObject.SetActive(true);
-            oneTime = false; 
+            default:
         }
     }
     public void getArtefact()
@@ -46,6 +45,8 @@ public class InteractButton : MonoBehaviour
         {
             Destroy(artefact);
             oneTime = true;
+            panel.SetActive(true);
+            print(oneTime);
         }
     }
     public enum FoodArtefactsBretagne
@@ -95,5 +96,4 @@ public class InteractButton : MonoBehaviour
         BougieTrudon,
         StatueMichelArchange
     }
-
 }
