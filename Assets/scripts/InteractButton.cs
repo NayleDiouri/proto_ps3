@@ -32,13 +32,7 @@ public class InteractButton : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        switch (switch_on)
-        {
-            default:
-        }
-    }
+
     public void getArtefact()
     {
         if(onArtefact == true)
