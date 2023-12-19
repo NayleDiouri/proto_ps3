@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/Menu.unity
+    guid: 0074e3e98c6874c4e8c640c8ed927e19
+  - enabled: 1
+    path: Assets/Scenes/Bretagne.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Normandie.unity
+    guid: 16e1275d42c018b4888f21b6fbb5628d
   m_configObjects: {}

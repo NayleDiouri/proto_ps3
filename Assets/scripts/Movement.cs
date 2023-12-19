@@ -13,12 +13,19 @@ public class Movement : MonoBehaviour
     private GameObject Player;
     public GameObject enemy;
     public GameObject popUps;
+    public int maxHealth = 100, currentHealth;
+    public HealthBar healthBar;
+    private bool invincibility = false;
+    private string direction;
+
 
     void Start()
     {
         popUps.SetActive(false);
         Player = GameObject.Find("Player");
         InvokeRepeating("Spawn", spawnTime, spawnTime);
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth); 
     }
 
     // Update is called once per frame
@@ -26,6 +33,18 @@ public class Movement : MonoBehaviour
     {
         Vector2 Input = new Vector2(joystick.Horizontal, joystick.Vertical);
         rb.MovePosition((Vector2)transform.position + Input * speed * Time.deltaTime);
+        direction = joystick.Direction.ToString();
+        print(direction);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "ennemy" && invincibility == false)
+        {
+            TakeDamage(20);
+            invincibility = true;
+            Invoke("InvincibilityDuration", 1f);
+        }
     }
 
     void Spawn()
@@ -34,6 +53,16 @@ public class Movement : MonoBehaviour
 
 
         Instantiate(enemy, Player.transform.position + spawnPosition, Quaternion.identity);
+    }
+
+    void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth); 
+    }
+    void InvincibilityDuration()
+    {
+        invincibility = false;
     }
 
 }

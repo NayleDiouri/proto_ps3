@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InteractButton : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class InteractButton : MonoBehaviour
     public GameObject artefact;
     public GameObject panel;
     private bool oneTime = false;
+    public Image img; 
 
 
 
@@ -43,51 +45,5 @@ public class InteractButton : MonoBehaviour
             print(oneTime);
         }
     }
-    public enum FoodArtefactsBretagne
-    { 
-        Cidre,
-        Chouchen,
-        Caramel,
-        Crepe,
-        KouignAmann,
-        Moules
 
-    }
-
-    public enum MysticArtefactBretagne
-    {
-        TriquetraCeltique,
-        Excalibur,
-        Durandal
-    }
-
-    public enum CultureArtefactsBretagne
-    {
-        ArmureChevalierBertrand,
-        CireBreton,
-        StatueMichelArchange
-    }
-
-    public enum FoodArtefactsNormandie
-    {
-        Andouille,
-        Fromage,
-        Calvados,
-        Omelette,
-        TartePommes,
-        SaintJacques
-    }
-
-    public enum MysticArtefactsNormandie
-    {
-        BigorneChicheface,
-        DemoiselleTonneville,
-        DameBlanche
-    }
-
-    public enum CultureArtefactsNormandie
-    {
-        BougieTrudon,
-        StatueMichelArchange
-    }
 }
