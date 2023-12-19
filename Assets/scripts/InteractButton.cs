@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class InteractButton : MonoBehaviour
 {
@@ -9,9 +10,16 @@ public class InteractButton : MonoBehaviour
     public GameObject artefact;
     public GameObject panel;
     private bool oneTime = false;
-    public Image img; 
+    public Image img;
+    public int minScore = 0, currentScore;
+    public ScoreBar ScoreBar;
 
 
+    void Start()
+    {
+        currentScore = minScore;
+        ScoreBar.SetMinScore(minScore);
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -42,8 +50,18 @@ public class InteractButton : MonoBehaviour
             Destroy(artefact);
             oneTime = true;
             panel.SetActive(true);
-            print(oneTime);
+            GainScore(10);
+            if(currentScore == 100)
+            {
+                SceneManager.LoadScene("Defeat", LoadSceneMode.Single);
+            }
         }
+    }
+
+    public void GainScore(int gain)
+    {
+        currentScore += gain;
+        ScoreBar.SetScore(currentScore);
     }
 
 }

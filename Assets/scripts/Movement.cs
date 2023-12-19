@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Movement : MonoBehaviour
 {
     public Joystick joystick;
@@ -17,6 +17,7 @@ public class Movement : MonoBehaviour
     public HealthBar healthBar;
     private bool invincibility = false;
     private string direction;
+    public Vector2 vectorDirection;
 
 
     void Start()
@@ -31,10 +32,17 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector2 Input = new Vector2(joystick.Horizontal, joystick.Vertical);
-        rb.MovePosition((Vector2)transform.position + Input * speed * Time.deltaTime);
+        Vector2 vectorDirection = new Vector2(joystick.Horizontal, joystick.Vertical);
+
+        rb.MovePosition((Vector2)transform.position + vectorDirection * speed * Time.deltaTime);
         direction = joystick.Direction.ToString();
-        print(direction);
+
+
+
+        if(currentHealth == 0)
+        {
+            SceneManager.LoadScene("Defeat", LoadSceneMode.Single);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -43,7 +51,7 @@ public class Movement : MonoBehaviour
         {
             TakeDamage(20);
             invincibility = true;
-            Invoke("InvincibilityDuration", 1f);
+            Invoke("InvincibilityDuration", 1f); 
         }
     }
 
@@ -53,6 +61,7 @@ public class Movement : MonoBehaviour
 
 
         Instantiate(enemy, Player.transform.position + spawnPosition, Quaternion.identity);
+
     }
 
     void TakeDamage(int damage)
